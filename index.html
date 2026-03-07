@@ -561,8 +561,8 @@
           <li>주문 소유권 검증(<code>validateOwner</code>)으로 본인 주문만 접근 가능하도록 권한 제어, 주요 변경 기능(취소/상태/배송)에 일관 적용</li>
           <li>주문 통계 API(<code>/api/v1/orders/stats</code>) 구현: 일별 매출·인기상품 Top10·시간대별 주문 수를 Native Query + Projection으로
             집계해 대시보드 데이터 제공</li>
-          <li>토스페이먼츠 결제 연동 구현: 결제 생성/승인/취소 API(<code>/api/v1/payments</code>)와 <code>TossPaymentsClient</code> 연동,
-            주문상태·금액·주문번호 검증으로 결제 무결성 확보</li>
+          <li>토스페이먼츠 결제 연동 구현: 결제 생성/승인/취소/내역 조회 API(<code>/api/v1/payments</code>)와 <code>TossPaymentsClient</code> 연동,
+  주문상태·금액·주문번호 검증으로 결제 무결성을 확보하고, 사용자별 기간 조건 기반 결제 내역 조회를 페이지네이션으로 제공</li>
           <li>결제 Webhook 처리(<code>/api/v1/payments/webhooks/toss</code>) 구현: <code>paymentKey</code> 기반 결제 조회 후 내부 결제/주문
             상태 동기화로 비동기 이벤트 반영</li>
           <li>공지사항 조회 API(<code>/api/v1/notices</code>) 구현: 카테고리 필터(공지/뉴스/이벤트/페스티벌) + 페이지네이션으로 최신순 목록 제공</li>
@@ -573,7 +573,7 @@
           <li>주문 생성/조회/상태변경 및 주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>) 생성 로직 구현</li>
           <li>주문 소유권 검증(<code>validateOwner</code>) 기반 권한 제어 일관 적용</li>
           <li>주문 통계 API: Native Query + Projection으로 집계(일별 매출/Top10/시간대)</li>
-          <li>토스페이먼츠 승인·취소 및 Webhook 처리로 결제/주문 상태 동기화</li>
+          <li>토스페이먼츠 결제 승인·취소·내역 조회 및 Webhook 처리로 결제/주문 상태 동기화</li>
         </ul>
 
         <ul class="role-list role-tech" hidden>
