@@ -1029,67 +1029,60 @@
         </ul>
       </div>
     </div>
+  </main>
 
-    <body>
-      <button type="button" class="theme-toggle" id="themeToggle" aria-label="다크모드 전환">
-        <span class="theme-toggle-track">
-          <span class="theme-toggle-thumb" id="themeThumb">☀️</span>
-        </span>
-        <span class="theme-toggle-label" id="themeLabel">Light</span>
-      </button>
+  <button type="button" class="theme-toggle" id="themeToggle" aria-label="다크모드 전환">
+    <span class="theme-toggle-track">
+      <span class="theme-toggle-thumb" id="themeThumb">☀️</span>
+    </span>
+    <span class="theme-toggle-label" id="themeLabel">Light</span>
+  </button>
 
-      <main>
+  <script>
+    document.querySelectorAll(".role-toggle").forEach((box) => {
+      const full = box.querySelector(".role-full");
+      const summary = box.querySelector(".role-summary");
+      const tech = box.querySelector(".role-tech");
+      box.__lists = { full, summary, tech };
+    });
 
-      </main>
+    const globalBtns = Array.from(document.querySelectorAll(".global-role-btn"));
 
-      <script>
-        document.querySelectorAll(".role-toggle").forEach((box) => {
-          const full = box.querySelector(".role-full");
-          const summary = box.querySelector(".role-summary");
-          const tech = box.querySelector(".role-tech");
-          box.__lists = { full, summary, tech };
-        });
+    function setGlobalView(view) {
+      globalBtns.forEach(b => b.classList.toggle("active", b.dataset.view === view));
+      document.querySelectorAll(".role-toggle").forEach((box) => {
+        const lists = box.__lists || {};
+        if (lists.full) lists.full.hidden = view !== "full";
+        if (lists.summary) lists.summary.hidden = view !== "summary";
+        if (lists.tech) lists.tech.hidden = view !== "tech";
+      });
+    }
 
-        const globalBtns = Array.from(document.querySelectorAll(".global-role-btn"));
+    globalBtns.forEach((btn) => {
+      btn.addEventListener("click", () => setGlobalView(btn.dataset.view));
+    });
 
-        function setGlobalView(view) {
-          globalBtns.forEach(b => b.classList.toggle("active", b.dataset.view === view));
-          document.querySelectorAll(".role-toggle").forEach((box) => {
-            const lists = box.__lists || {};
-            if (lists.full) lists.full.hidden = view !== "full";
-            if (lists.summary) lists.summary.hidden = view !== "summary";
-            if (lists.tech) lists.tech.hidden = view !== "tech";
-          });
-        }
+    setGlobalView("full");
 
-        globalBtns.forEach((btn) => {
-          btn.addEventListener("click", () => setGlobalView(btn.dataset.view));
-        });
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeThumb = document.getElementById("themeThumb");
+    const themeLabel = document.getElementById("themeLabel");
 
-        setGlobalView("full");
+    function applyTheme(theme) {
+      const isDark = theme === "dark";
+      body.classList.toggle("dark", isDark);
+      themeThumb.textContent = isDark ? "🌙" : "☀️";
+      themeLabel.textContent = isDark ? "Dark" : "Light";
+    }
 
-        const body = document.body;
-        const themeToggle = document.getElementById("themeToggle");
-        const themeThumb = document.getElementById("themeThumb");
-        const themeLabel = document.getElementById("themeLabel");
+    applyTheme("light");
 
-        function applyTheme(theme) {
-          const isDark = theme === "dark";
-          body.classList.toggle("dark", isDark);
-          themeThumb.textContent = isDark ? "🌙" : "☀️";
-          themeLabel.textContent = isDark ? "Dark" : "Light";
-          localStorage.setItem("theme", theme);
-        }
-
-        const savedTheme = localStorage.getItem("theme");
-
-        applyTheme(savedTheme || "light");
-
-        themeToggle.addEventListener("click", () => {
-          const nextTheme = body.classList.contains("dark") ? "light" : "dark";
-          applyTheme(nextTheme);
-        });
-      </script>
-    </body>
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = body.classList.contains("dark") ? "light" : "dark";
+      applyTheme(nextTheme);
+    });
+  </script>
+</body>
 
 </html>
