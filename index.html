@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>강명석 | 포트폴리오</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    a {
+      color: #1e88e5;
+      text-decoration: none;
+      transition: 0.2s ease;
+      word-break: break-all;
+    }
+
+    a:hover {
+      color: #1565c0;
+      text-decoration: underline;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 26px;
+      border-left: 6px solid #1e88e5;
+      padding-left: 14px;
+      color: #222;
+      scroll-margin-top: 120px;
+    }
+
+    h4 {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    ul {
+      list-style: disc;
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+      margin: 0 0 16px;
+    }
+
+    .bold {
+      font-weight: 700;
+    }
+
+    .profile {
+      position: relative;
+      background: #fff;
+      padding: 34px;
+      border-radius: 14px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+
+    .profile::before {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -110px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle at 30% 30%, rgba(30, 136, 229, 0.20), transparent 60%);
+      transform: rotate(10deg);
+      pointer-events: none;
+    }
+
+    .profile::after {
+      content: "";
+      position: absolute;
+      right: 40px;
+      bottom: -160px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle at 40% 40%, rgba(109, 179, 63, 0.14), transparent 60%);
+      pointer-events: none;
+    }
+
+    .profile-text {
+      position: relative;
+      min-width: 0;
+      z-index: 1;
+    }
+
+    .name {
+      font-size: 36px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      color: #222;
+      letter-spacing: -0.2px;
+    }
+
+    .title {
+      font-size: 26px;
+      margin: 0 0 16px;
+      color: #666;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0 0;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.4;
+      box-shadow: 0 2px 6px rgba(30, 136, 229, 0.08);
+    }
+
+    .status-badge::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #1e88e5;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .role-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .role-icons img {
+      height: 30px;
+      width: auto;
+      display: block;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 18px;
+      margin-top: 18px;
+    }
+
+    .meta-item {
+      background: #f8fafc;
+      border: 1px solid #eef2f7;
+      border-radius: 10px;
+      padding: 10px 12px;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .email-label {
+      color: #6b7280;
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    .profile-qr {
+      position: absolute;
+      right: 26px;
+      top: 10px;
+      width: 112px;
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid #eef2f7;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .profile-qr img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .qr-caption {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      color: #374151;
+      letter-spacing: -0.1px;
+    }
+
+    .stack-section {
+      background: #fff;
+      padding: 26px 30px;
+      margin-top: 40px;
+      border-radius: 14px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+      scroll-margin-top: 120px;
+    }
+
+    .stack-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .stack-badges img {
+      height: 26px;
+      display: block;
+    }
+
+    .tri-section {
+      display: grid;
+      grid-template-columns: 4.7fr 3.5fr 3.3fr;
+      gap: 24px;
+      margin-top: 60px;
+      align-items: stretch;
+    }
+
+    .tri-section>section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e0e0e0;
+      min-width: 0;
+    }
+
+    .tri-section h2 {
+      margin: 0 0 14px;
+    }
+
+    .award-group {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed #e5e7eb;
+    }
+
+    .award-group:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .award-item {
+      padding: 22px 12px;
+      border: 1px solid #eef2f7;
+      background: #f8fafc;
+      border-radius: 12px;
+    }
+
+    .award-title {
+      font-weight: 900;
+      color: #111827;
+      line-height: 1.4;
+    }
+
+    .award-meta {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .item-card {
+      padding: 12px;
+      border: 1px solid #eef2f7;
+      background: #f8fafc;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    .item-card:first-of-type {
+      margin-top: 0;
+    }
+
+    .item-title {
+      font-weight: 900;
+      color: #111827;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .item-meta {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .global-role-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 60px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid #eef2f7;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .project-section-title {
+      margin: 0;
+      font-size: 26px;
+      border-left: 6px solid #1e88e5;
+      padding-left: 14px;
+      color: #222;
+      scroll-margin-top: 120px;
+      white-space: nowrap;
+    }
+
+    .global-role-buttons {
+      display: inline-flex;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #eef2f7;
+      padding: 6px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+
+    .global-role-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      color: #374151;
+      transition: 0.15s ease;
+    }
+
+    .global-role-btn:hover {
+      background: #fff;
+      border-color: #e5e7eb;
+    }
+
+    .global-role-btn.active {
+      border-color: #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .project-section {
+      background: #fff;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 14px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 900;
+      margin: 0 0 6px;
+      color: #1e88e5;
+    }
+
+    .project-duration {
+      color: #666;
+      margin: 0 0 18px;
+      font-style: italic;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 8px;
+      margin-right: 150px;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.4;
+      box-shadow: 0 2px 6px rgba(30, 136, 229, 0.08);
+      flex: 0 0 auto;
+    }
+
+    .status-badge::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #1e88e5;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .portfolio-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.6;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-text {
+      font-weight: 700;
+      color: #4b5563;
+    }
+
+    .portfolio-inline a {
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 18px;
+      margin-top: 16px;
+    }
+
+    .profile-qr {
+      position: absolute;
+      right: 30px;
+      top: 12px;
+      width: 112px;
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid #eef2f7;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .qr-caption {
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 900;
+      color: #374151;
+      letter-spacing: -0.1px;
+    }
+
+    .url-box {
+      background: #f1f3f5;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 18px 0;
+      font-size: 15px;
+    }
+
+    .role-toggle {
+      margin-top: 6px;
+    }
+
+    .role-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .project-section li {
+      margin: 6px 0;
+    }
+
+    #sec-certs .item-card {
+      padding: 10px 12px;
+      margin-top: 8px;
+    }
+
+    #sec-certs .item-title {
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    #sec-certs .item-meta {
+      line-height: 1.45;
+    }
+
+    @media (max-width: 900px) {
+      .tri-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .profile-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-qr {
+        display: none;
+      }
+    }
+
+    :root {
+      --bg: #f4f6f9;
+      --text: #333;
+      --card: #fff;
+      --card-2: #f8fafc;
+      --border: #e0e0e0;
+      --border-soft: #eef2f7;
+      --heading: #222;
+      --subtext: #666;
+      --muted: #6b7280;
+      --link: #1e88e5;
+      --link-hover: #1565c0;
+      --blue-soft: #eff6ff;
+      --blue-border: #bfdbfe;
+      --blue-text: #1d4ed8;
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.04);
+      --shadow-float: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    body.dark {
+      --bg: #0b1220;
+      --text: #e5e7eb;
+      --card: #111827;
+      --card-2: #182233;
+      --border: #243041;
+      --border-soft: #2b3647;
+      --heading: #f9fafb;
+      --subtext: #9ca3af;
+      --muted: #94a3b8;
+      --link: #7cc4ff;
+      --link-hover: #a5d8ff;
+      --blue-soft: rgba(59, 130, 246, 0.14);
+      --blue-border: rgba(96, 165, 250, 0.35);
+      --blue-text: #93c5fd;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.24);
+      --shadow-float: 0 14px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px 20px;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      transition: 0.2s ease;
+      word-break: break-all;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    h2,
+    .project-section-title,
+    .name {
+      color: var(--heading);
+    }
+
+    h4,
+    .title,
+    .project-duration,
+    .portfolio-text,
+    .item-meta,
+    .award-meta,
+    .email-label,
+    .qr-caption {
+      color: var(--subtext);
+    }
+
+    .profile,
+    .stack-section,
+    .tri-section>section,
+    .global-role-bar,
+    .project-section {
+      background: var(--card);
+      border-color: var(--border);
+      box-shadow: var(--shadow-soft);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .meta-item,
+    .award-item,
+    .item-card,
+    .global-role-buttons,
+    .url-box {
+      background: var(--card-2);
+      border-color: var(--border-soft);
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .status-badge,
+    .global-role-btn.active {
+      background: var(--blue-soft);
+      border-color: var(--blue-border);
+      color: var(--blue-text);
+    }
+
+    .global-role-btn {
+      color: var(--text);
+    }
+
+    .global-role-btn:hover {
+      background: var(--card);
+      border-color: var(--border-soft);
+    }
+
+    .profile-qr {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: var(--border-soft);
+      box-shadow: var(--shadow-float);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    body.dark .profile-qr {
+      background: rgba(17, 24, 39, 0.72);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 60px;
+      padding: 0 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-float);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+    }
+
+    body.dark .theme-toggle {
+      background: rgba(17, 24, 39, 0.72);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .theme-toggle-track {
+      position: relative;
+      width: 68px;
+      height: 36px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      transition: 0.35s ease;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    body.dark .theme-toggle-track {
+      background: linear-gradient(135deg, #1e293b, #334155);
+    }
+
+    .theme-toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+      transition: transform 0.35s ease, background 0.35s ease;
+    }
+
+    body.dark .theme-toggle-thumb {
+      transform: translateX(28px);
+      background: #0f172a;
+    }
+
+    .theme-toggle-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.1px;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .theme-toggle {
+        top: 14px;
+        right: 14px;
+        height: 46px;
+        padding: 0 12px;
+      }
+
+      .theme-toggle-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="profile" id="sec-profile">
+      <div class="profile-text">
+        <div class="name">강명석</div>
+        <div class="title">
+          백엔드 개발자
+          <span class="role-icons">
+            <img src="https://raw.githubusercontent.com/ydmins/YdMinS/main/icons/java.png" alt="Java" />
+            <img src="https://raw.githubusercontent.com/ydmins/YdMinS/main/icons/spring.png" alt="Spring" />
+          </span>
+        </div>
+
+        <div class="status-row">
+          <div class="status-badge">병역특례 산업기능요원(보충역) 신규 편입 가능</div>
+        </div>
+
+        <div class="profile-meta">
+          <div class="meta-item">
+            <span class="email-label">이메일</span><a href="mailto:dooly6276@gmail.com">dooly6276@gmail.com</a>
+          </div>
+          <div class="meta-item">
+            <span class="email-label">GitHub</span>
+            <a href="https://github.com/Myeongseok-Kang" target="_blank" rel="noopener noreferrer">
+              https://github.com/Myeongseok-Kang
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-qr">
+        <img src="qr.png" alt="QR Code" />
+      </div>
+    </div>
+
+    <div class="stack-section" id="sec-stack">
+      <h2>기술 스택</h2>
+      <div class="stack-badges">
+        <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white" alt="Java" />
+        <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white"
+          alt="SpringBoot" />
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="MySQL" />
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=white"
+          alt="PostgreSQL" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"
+          alt="Docker" />
+        <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=Amazon AWS&logoColor=white"
+          alt="AWS" />
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"
+          alt="Python" />
+        <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white" alt="HTML5" />
+        <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white" alt="CSS3" />
+        <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white" alt="Git" />
+        <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=Swagger&logoColor=black"
+          alt="Swagger" />
+        <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=Postman&logoColor=white"
+          alt="Postman" />
+        <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"
+          alt="Notion" />
+      </div>
+    </div>
+
+    <div class="tri-section">
+      <section class="award-section" id="sec-awards">
+        <h2>수상</h2>
+        <div class="award-group">
+          <div class="award-item">
+            <div class="award-title">2024 교내 프로그래밍 경진대회 최우수상</div>
+            <div class="award-meta">2024.12 | 서경대학교 × 프로그래머스</div>
+          </div>
+        </div>
+        <div class="award-group">
+          <div class="award-item">
+            <div class="award-title">2025 교내 프로그래밍 경진대회 최우수상</div>
+            <div class="award-meta">2025.09 | 서경대학교 × 프로그래머스</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="certificate-section" id="sec-certs">
+        <h2>자격증</h2>
+        <div class="item-card">
+          <div class="item-title">정보처리기사</div>
+          <div class="item-meta">2025.09. | 한국산업인력공단</div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">SQLD (SQL Developer)</div>
+          <div class="item-meta">2025.03. | 한국데이터산업진흥원</div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">PCCP (코딩전문역량인증)</div>
+          <div class="item-meta">2024.12. | 프로그래머스</div>
+        </div>
+      </section>
+
+      <section class="education-section" id="sec-edu">
+        <h2>교육</h2>
+
+        <div class="award-group">
+          <div class="item-card">
+            <div class="item-title">서경대학교</div>
+            <div class="item-meta">대학교(학사) | 컴퓨터공학</div>
+            <div class="item-meta">2022.03. ~ 2026.02. | 졸업</div>
+          </div>
+        </div>
+
+        <div class="award-group">
+          <div class="item-card">
+            <div class="item-title">한이음 드림업(ICT멘토링)</div>
+            <div class="item-meta">과학기술정보통신부 | 주최</div>
+            <div class="item-meta">2024.04. ~ 2024.10.</div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <div class="global-role-bar">
+      <h2 id="sec-projects" class="project-section-title">프로젝트</h2>
+      <div class="global-role-buttons" id="globalRoleButtons">
+        <button type="button" class="global-role-btn active" data-view="full">전체</button>
+        <button type="button" class="global-role-btn" data-view="summary">요약</button>
+        <button type="button" class="global-role-btn" data-view="tech">기술</button>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-title">디어 오브제(Dear Objet) · 개발 진행 중</div>
+      <div class="project-duration">2026.01. ~ </div>
+
+      <h4>소개</h4>
+      <div class="url-box">
+        <a href="https://github.com/DearObjet/DearObjet-backend/tree/develop" target="_blank" rel="noopener noreferrer">
+          https://github.com/DearObjet/DearObjet-backend/tree/develop (develop 브랜치)
+        </a>
+      </div>
+      <p>
+        디어 오브제는 <span class="bold">작가·소품샵·일반 사용자를 연결하는 온·오프라인 통합 플랫폼</span>으로,
+        사용자는 지도 기반으로 소품샵을 탐색하고, 작가와 샵은 플랫폼 내에서
+        소통·입점 제안/승인·계약·정산까지 한 번에 처리할 수 있도록 설계된 원스톱 서비스입니다.
+        작가–소품샵 간 실시간 소통부터 입점 제안, 계약, 정산까지 이어지는 흐름을 한 곳에서 끊김 없이 제공해
+        사용자는 원하는 공간과 작품을 더 빠르게 찾고, 작가와 소품샵은 더 효율적으로 협업할 수 있도록 하는 것을 목표로 개발 중입니다.
+      </p>
+
+      <h4>담당 역할</h4>
+      <div class="role-toggle">
+        <ul class="role-list role-full">
+          <li>주문/결제/공지 도메인 REST API 설계·구현 및 공통 응답 래퍼(<code>ApiResponse</code>) 적용, 요청/응답 DTO로 계층 분리</li>
+          <li>주문 생성·조회·상태변경·배송정보 등록·구매확정·취소 API(<code>/api/v1/orders</code>) 구현 및 주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>)
+            생성 로직 적용</li>
+          <li>주문 소유권 검증(<code>validateOwner</code>)으로 본인 주문만 접근 가능하도록 권한 제어, 주요 변경 기능(취소/상태/배송)에 일관 적용</li>
+          <li>주문 통계 API(<code>/api/v1/orders/stats</code>) 구현: 일별 매출·인기상품 Top10·시간대별 주문 수를 Native Query + Projection으로
+            집계해 대시보드 데이터 제공</li>
+          <li>토스페이먼츠 결제 연동 구현: 결제 생성/승인/취소/내역 조회 API(<code>/api/v1/payments</code>)와 <code>TossPaymentsClient</code> 연동,
+            주문상태·금액·주문번호 검증으로 결제 무결성을 확보하고, 사용자별 기간 조건 기반 결제 내역 조회를 페이지네이션으로 제공</li>
+          <li>결제 Webhook 처리(<code>/api/v1/payments/webhooks/toss</code>) 구현: <code>paymentKey</code> 기반 결제 조회 후 내부 결제/주문
+            상태 동기화로 비동기 이벤트 반영</li>
+          <li>공지사항 조회 API(<code>/api/v1/notices</code>) 구현: 카테고리 필터(공지/뉴스/이벤트/페스티벌) + 페이지네이션으로 최신순 목록 제공</li>
+        </ul>
+
+        <ul class="role-list role-summary" hidden>
+          <li>주문/결제/공지 도메인 REST API 설계·구현, <code>ApiResponse</code> 적용 및 DTO 계층 분리</li>
+          <li>주문 생성/조회/상태변경 및 주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>) 생성 로직 구현</li>
+          <li>주문 소유권 검증(<code>validateOwner</code>) 기반 권한 제어 일관 적용</li>
+          <li>주문 통계 API: Native Query + Projection으로 집계(일별 매출/Top10/시간대)</li>
+          <li>토스페이먼츠 결제 승인·취소·내역 조회 및 Webhook 처리로 결제/주문 상태 동기화</li>
+        </ul>
+
+        <ul class="role-list role-tech" hidden>
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>JPA</li>
+          <li>Native Query</li>
+          <li>Projection</li>
+          <li>REST API</li>
+          <li>PostgreSQL</li>
+          <li>Docker</li>
+          <li>Postman</li>
+          <li>TossPayments PG</li>
+          <li>Webhook</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-title">하루새김</div>
+      <div class="project-duration">2025.08. ~ 2025.11.</div>
+
+      <h4>소개</h4>
+      <div class="url-box">
+        <a href="https://github.com/Myeongseok-Kang/harusaegim" target="_blank" rel="noopener noreferrer">
+          https://github.com/Myeongseok-Kang/harusaegim
+        </a>
+      </div>
+      <p>
+        하루새김은 바쁜 일상 속에서도 <span class="bold">일상의 사소한 순간과 감정을 빠르고 간편하게 남길 수 있는 Android 전용 감정일기 애플리케이션</span>입니다.
+        사용자는 날짜, 위치, 활동, 감정의 네 가지 요소만 입력하면 되며, 서버에서는 OpenAI API를 활용해 자연스러운 1인칭 하루 일기를 자동으로 생성합니다.
+        누적된 기록을 바탕으로 7일·30일 감정 리포트를 제공하여, 사용자가 자신의 감정 흐름과 생활 리듬을 한눈에 돌아볼 수 있도록 설계했습니다.
+      </p>
+
+      <h4>담당 역할</h4>
+      <div class="role-toggle">
+        <ul class="role-list role-full">
+          <li>GPT 기반 일기 생성 로직 구현 - 날짜·장소·한 일·기분을 입력받아 OpenAI API와 연동해 일기 생성, 장애 시 안전한 fallback 문장 제공</li>
+          <li>감정 키워드를 기반으로 0~20 범위의 감정 점수를 계산하는 스코어링 함수와, 이를 활용한 7일·30일 감정 리포트 API(<code>/api/reports/weekly</code>,
+            <code>/api/reports/monthly</code>) 구현
+          </li>
+          <li>일기 CRUD API 구현 및 사용자 소유권 검증(userId 일치 확인)으로 접근 제어 적용, 사용자+날짜 조합 중복 저장 방지로 데이터 무결성 강화</li>
+          <li>토큰 기반 인증 방식 구현(로그인 시 토큰 발급/DB 저장/만료 관리) 및 인터셉터에서 토큰 검증으로 인증 필요한 API를 공통 관리</li>
+          <li>회원가입/로그인/프로필 조회·수정 API 설계·구현, DTO/Validation으로 입력 검증 적용 및 응답 모델을 DTO로 분리</li>
+          <li>예외 상황을 GlobalExceptionHandler로 정리해 검증 오류/비정상 요청/접근 불가 상황 등을 일관된 에러 응답(HTTP 상태코드 + 메시지)으로 반환하도록 구성</li>
+        </ul>
+
+        <ul class="role-list role-summary" hidden>
+          <li>OpenAI API 연동으로 1인칭 일기 자동 생성 및 장애 대비 fallback 로직 구성</li>
+          <li>감정 스코어링(0~20) + 주간/월간 리포트 API 구현</li>
+          <li>일기 CRUD 및 소유권 검증, 사용자+날짜 중복 방지로 데이터 무결성 강화</li>
+          <li>토큰 기반 인증(발급/만료/검증) 및 인증 필요한 API 공통 처리</li>
+          <li>DTO/Validation/GlobalExceptionHandler로 입력 검증과 예외 응답 체계화</li>
+        </ul>
+
+        <ul class="role-list role-tech" hidden>
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>REST API</li>
+          <li>OpenAI API</li>
+          <li>Token Authentication</li>
+          <li>Interceptor</li>
+          <li>MySQL</li>
+          <li>Postman</li>
+          <li>Validation</li>
+          <li>GlobalExceptionHandler</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-title">찰떡케어</div>
+      <div class="project-duration">2024.03. ~ 2024.08.</div>
+
+      <h4>소개</h4>
+      <div class="url-box">
+        <a href="https://github.com/chaltteogCare/Back" target="_blank" rel="noopener noreferrer">
+          https://github.com/chaltteogCare/Back
+        </a>
+      </div>
+      <p>
+        서울 열린데이터광장 공공데이터 활용 창업 경진대회에 출품된 찰떡케어 프로젝트는 <span class="bold">독거노인의 생활 정보, 보호자 연락처, 방문 일정을 통합 관리할 수 있는 맞춤형 돌봄
+          지원 서비스</span>입니다.
+        총 5명의 팀원이 협업하여 개발했으며, 저는 백엔드 개발과 AI 모델 연동, 배포 등을 담당했습니다.
+      </p>
+
+      <h4>담당 역할</h4>
+      <div class="role-toggle">
+        <ul class="role-list role-full">
+          <li>팀의 다른 백엔드 개발자와 협업하여 RESTful 원칙에 따라 전체 CRUD API를 설계 및 구현</li>
+          <li>AI 담당자가 개발한 Python 모델을 Flask 서버로 구축하고, Spring Boot 서버와 연동</li>
+          <li>Docker Compose를 활용하여 Spring Boot와 Flask 서버를 통합, AWS에 배포</li>
+          <li>API 사용에 어려움을 겪는 프론트엔드 팀원을 위해 Notion에 API 문서 작성 및 설명 지원</li>
+        </ul>
+
+        <ul class="role-list role-summary" hidden>
+          <li>RESTful 원칙 기반 CRUD API 설계·구현(백엔드 협업)</li>
+          <li>Python(Flask) AI 모델 서버 구축 및 Spring Boot 연동</li>
+          <li>Docker Compose로 서비스 통합 후 AWS 배포</li>
+          <li>Notion 기반 API 문서화 및 커뮤니케이션 지원</li>
+        </ul>
+
+        <ul class="role-list role-tech" hidden>
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>Flask</li>
+          <li>Python</li>
+          <li>MySQL</li>
+          <li>Docker Compose</li>
+          <li>AWS</li>
+          <li>REST API</li>
+          <li>Swagger</li>
+          <li>Notion</li>
+        </ul>
+      </div>
+    </div>
+
+    <body>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="다크모드 전환">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb" id="themeThumb">☀️</span>
+        </span>
+        <span class="theme-toggle-label" id="themeLabel">Light</span>
+      </button>
+
+      <main>
+
+      </main>
+
+      <script>
+        document.querySelectorAll(".role-toggle").forEach((box) => {
+          const full = box.querySelector(".role-full");
+          const summary = box.querySelector(".role-summary");
+          const tech = box.querySelector(".role-tech");
+          box.__lists = { full, summary, tech };
+        });
+
+        const globalBtns = Array.from(document.querySelectorAll(".global-role-btn"));
+
+        function setGlobalView(view) {
+          globalBtns.forEach(b => b.classList.toggle("active", b.dataset.view === view));
+          document.querySelectorAll(".role-toggle").forEach((box) => {
+            const lists = box.__lists || {};
+            if (lists.full) lists.full.hidden = view !== "full";
+            if (lists.summary) lists.summary.hidden = view !== "summary";
+            if (lists.tech) lists.tech.hidden = view !== "tech";
+          });
+        }
+
+        globalBtns.forEach((btn) => {
+          btn.addEventListener("click", () => setGlobalView(btn.dataset.view));
+        });
+
+        setGlobalView("full");
+
+        const body = document.body;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeThumb = document.getElementById("themeThumb");
+        const themeLabel = document.getElementById("themeLabel");
+
+        function applyTheme(theme) {
+          const isDark = theme === "dark";
+          body.classList.toggle("dark", isDark);
+          themeThumb.textContent = isDark ? "🌙" : "☀️";
+          themeLabel.textContent = isDark ? "Dark" : "Light";
+          localStorage.setItem("theme", theme);
+        }
+
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+        themeToggle.addEventListener("click", () => {
+          const nextTheme = body.classList.contains("dark") ? "light" : "dark";
+          applyTheme(nextTheme);
+        });
+      </script>
+    </body>
+
+</html>
