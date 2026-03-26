@@ -3,58 +3,138 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>강명석 | 포트폴리오</title>
   <style>
+    :root {
+      --bg: #f4f6f9;
+      --text: #333;
+      --card: #fff;
+      --card-2: #f8fafc;
+      --card-3: #f1f5f9;
+      --border: #e0e0e0;
+      --border-soft: #e7edf4;
+      --heading: #222;
+      --subtext: #666;
+      --muted: #6b7280;
+      --link: #1e88e5;
+      --link-hover: #1565c0;
+      --blue-soft: #eff6ff;
+      --blue-border: #bfdbfe;
+      --blue-text: #1d4ed8;
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.04);
+      --shadow-float: 0 10px 24px rgba(0, 0, 0, 0.12);
+      --accent: #1e88e5;
+      --accent-soft: rgba(30, 136, 229, 0.08);
+      --accent-soft-2: rgba(30, 136, 229, 0.12);
+      --success: #6db33f;
+      --gradient-1: radial-gradient(circle at 30% 30%, rgba(30, 136, 229, 0.20), transparent 60%);
+      --gradient-2: radial-gradient(circle at 40% 40%, rgba(109, 179, 63, 0.14), transparent 60%);
+    }
+
+    body.dark {
+      --bg: #0b1220;
+      --text: #e5e7eb;
+      --card: #111827;
+      --card-2: #182233;
+      --card-3: #1e293b;
+      --border: #243041;
+      --border-soft: #2b3647;
+      --heading: #f9fafb;
+      --subtext: #9ca3af;
+      --muted: #94a3b8;
+      --link: #7cc4ff;
+      --link-hover: #a5d8ff;
+      --blue-soft: rgba(59, 130, 246, 0.14);
+      --blue-border: rgba(96, 165, 250, 0.35);
+      --blue-text: #93c5fd;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.24);
+      --shadow-float: 0 14px 30px rgba(0, 0, 0, 0.35);
+      --accent: #7cc4ff;
+      --accent-soft: rgba(124, 196, 255, 0.10);
+      --accent-soft-2: rgba(124, 196, 255, 0.16);
+      --gradient-1: radial-gradient(circle at 30% 30%, rgba(96, 165, 250, 0.18), transparent 60%);
+      --gradient-2: radial-gradient(circle at 40% 40%, rgba(74, 222, 128, 0.10), transparent 60%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Segoe UI", sans-serif;
-      background: #f4f6f9;
-      color: #333;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
-      padding: 40px 20px;
+      padding: 40px 20px 70px;
+      transition: background 0.35s ease, color 0.35s ease;
     }
 
     main {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
     a {
-      color: #1e88e5;
+      color: var(--link);
       text-decoration: none;
       transition: 0.2s ease;
       word-break: break-all;
     }
 
     a:hover {
-      color: #1565c0;
+      color: var(--link-hover);
       text-decoration: underline;
     }
 
     h2 {
       margin: 0 0 14px;
       font-size: 26px;
-      border-left: 6px solid #1e88e5;
+      border-left: 6px solid var(--accent);
       padding-left: 14px;
-      color: #222;
+      color: var(--heading);
       scroll-margin-top: 120px;
     }
 
-    h4 {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #444;
+    h3 {
+      margin: 0;
+      color: var(--heading);
     }
 
-    ul {
-      list-style: disc;
-      margin: 0;
-      padding-left: 22px;
+    h4 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      color: var(--heading);
     }
 
     p {
       line-height: 1.8;
       font-size: 16px;
-      margin: 0 0 16px;
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      line-height: 1.8;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95em;
+      background: var(--card-3);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
     }
 
     .bold {
@@ -63,12 +143,14 @@
 
     .profile {
       position: relative;
-      background: #fff;
+      background: var(--card);
       padding: 34px;
-      border-radius: 14px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
       margin-bottom: 40px;
       overflow: hidden;
+      border: 1px solid var(--border);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
     .profile::before {
@@ -78,7 +160,7 @@
       top: -110px;
       width: 320px;
       height: 320px;
-      background: radial-gradient(circle at 30% 30%, rgba(30, 136, 229, 0.20), transparent 60%);
+      background: var(--gradient-1);
       transform: rotate(10deg);
       pointer-events: none;
     }
@@ -90,7 +172,7 @@
       bottom: -160px;
       width: 360px;
       height: 360px;
-      background: radial-gradient(circle at 40% 40%, rgba(109, 179, 63, 0.14), transparent 60%);
+      background: var(--gradient-2);
       pointer-events: none;
     }
 
@@ -101,33 +183,60 @@
     }
 
     .name {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 800;
       margin: 0 0 8px;
-      color: #222;
-      letter-spacing: -0.2px;
+      color: var(--heading);
+      letter-spacing: -0.3px;
     }
 
     .title {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
       font-size: 26px;
       margin: 0 0 16px;
-      color: #666;
+      color: var(--subtext);
+    }
+
+    .role-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      vertical-align: middle;
+    }
+
+    .role-icons img {
+      height: 30px;
+      width: auto;
+      display: block;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 8px;
+      margin-right: 150px;
+      flex-wrap: wrap;
     }
 
     .status-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin: 4px 0 0;
       padding: 9px 14px;
       border-radius: 999px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
+      background: var(--blue-soft);
+      border: 1px solid var(--blue-border);
+      color: var(--blue-text);
       font-size: 14px;
       font-weight: 800;
       line-height: 1.4;
       box-shadow: 0 2px 6px rgba(30, 136, 229, 0.08);
+      flex: 0 0 auto;
     }
 
     .status-badge::before {
@@ -138,25 +247,11 @@
       width: 18px;
       height: 18px;
       border-radius: 999px;
-      background: #1e88e5;
+      background: var(--accent);
       color: #fff;
       font-size: 12px;
       font-weight: 900;
       flex: 0 0 auto;
-    }
-
-    .role-icons {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    .role-icons img {
-      height: 30px;
-      width: auto;
-      display: block;
     }
 
     .profile-meta {
@@ -167,16 +262,17 @@
     }
 
     .meta-item {
-      background: #f8fafc;
-      border: 1px solid #eef2f7;
-      border-radius: 10px;
-      padding: 10px 12px;
+      background: var(--card-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 12px 14px;
       line-height: 1.6;
       font-size: 15px;
+      transition: background 0.35s ease, border-color 0.35s ease;
     }
 
     .email-label {
-      color: #6b7280;
+      color: var(--subtext);
       font-weight: 800;
       margin-right: 10px;
     }
@@ -189,11 +285,16 @@
       padding: 10px;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.78);
-      border: 1px solid #eef2f7;
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-float);
       backdrop-filter: blur(8px);
       text-align: center;
       z-index: 2;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    body.dark .profile-qr {
+      background: rgba(17, 24, 39, 0.72);
     }
 
     .profile-qr img {
@@ -207,18 +308,19 @@
       margin-top: 6px;
       font-size: 12px;
       font-weight: 900;
-      color: #374151;
+      color: var(--subtext);
       letter-spacing: -0.1px;
     }
 
     .stack-section {
-      background: #fff;
+      background: var(--card);
       padding: 26px 30px;
       margin-top: 40px;
-      border-radius: 14px;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
       scroll-margin-top: 120px;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
     .stack-badges {
@@ -242,16 +344,25 @@
     }
 
     .tri-section>section {
-      background: #fff;
+      background: var(--card);
       padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-      border: 1px solid #e0e0e0;
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
       min-width: 0;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
-    .tri-section h2 {
-      margin: 0 0 14px;
+    .award-group {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-soft);
+    }
+
+    .award-group:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
     }
 
     .award-group {
@@ -268,9 +379,21 @@
 
     .award-item {
       padding: 22px 12px;
-      border: 1px solid #eef2f7;
-      background: #f8fafc;
+      border: 1px solid var(--border-soft);
+      background: var(--card-2);
       border-radius: 12px;
+    }
+
+    .item-card {
+      padding: 12px;
+      border: 1px solid var(--border-soft);
+      background: var(--card-2);
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    .item-card:first-of-type {
+      margin-top: 0;
     }
 
     .award-title {
@@ -282,20 +405,8 @@
     .award-meta {
       margin-top: 6px;
       font-size: 13px;
-      color: #6b7280;
+      color: var(--subtext);
       line-height: 1.5;
-    }
-
-    .item-card {
-      padding: 12px;
-      border: 1px solid #eef2f7;
-      background: #f8fafc;
-      border-radius: 12px;
-      margin-top: 10px;
-    }
-
-    .item-card:first-of-type {
-      margin-top: 0;
     }
 
     .item-title {
@@ -307,199 +418,8 @@
 
     .item-meta {
       font-size: 13px;
-      color: #6b7280;
+      color: var(--subtext);
       line-height: 1.5;
-    }
-
-    .global-role-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: 60px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: #fff;
-      border: 1px solid #eef2f7;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    }
-
-    .project-section-title {
-      margin: 0;
-      font-size: 26px;
-      border-left: 6px solid #1e88e5;
-      padding-left: 14px;
-      color: #222;
-      scroll-margin-top: 120px;
-      white-space: nowrap;
-    }
-
-    .global-role-buttons {
-      display: inline-flex;
-      gap: 8px;
-      background: #f8fafc;
-      border: 1px solid #eef2f7;
-      padding: 6px;
-      border-radius: 999px;
-      flex: 0 0 auto;
-    }
-
-    .global-role-btn {
-      border: 1px solid transparent;
-      background: transparent;
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
-      cursor: pointer;
-      color: #374151;
-      transition: 0.15s ease;
-    }
-
-    .global-role-btn:hover {
-      background: #fff;
-      border-color: #e5e7eb;
-    }
-
-    .global-role-btn.active {
-      border-color: #bfdbfe;
-      background: #eff6ff;
-      color: #1d4ed8;
-    }
-
-    .project-section {
-      background: #fff;
-      padding: 30px;
-      margin-top: 40px;
-      border-radius: 14px;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .project-title {
-      font-size: 24px;
-      font-weight: 900;
-      margin: 0 0 6px;
-      color: #1e88e5;
-    }
-
-    .project-duration {
-      color: #666;
-      margin: 0 0 18px;
-      font-style: italic;
-    }
-
-    .status-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 8px;
-      margin-right: 150px;
-      flex-wrap: wrap;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
-      font-size: 14px;
-      font-weight: 800;
-      line-height: 1.4;
-      box-shadow: 0 2px 6px rgba(30, 136, 229, 0.08);
-      flex: 0 0 auto;
-    }
-
-    .status-badge::before {
-      content: "✓";
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: #1e88e5;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .portfolio-inline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-      font-size: 14px;
-      color: #4b5563;
-      line-height: 1.6;
-      flex-wrap: wrap;
-    }
-
-    .portfolio-text {
-      font-weight: 700;
-      color: #4b5563;
-    }
-
-    .portfolio-inline a {
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .profile-meta {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 18px;
-      margin-top: 16px;
-    }
-
-    .profile-qr {
-      position: absolute;
-      right: 30px;
-      top: 12px;
-      width: 112px;
-      padding: 10px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid #eef2f7;
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
-      backdrop-filter: blur(8px);
-      text-align: center;
-      z-index: 2;
-    }
-
-    .qr-caption {
-      margin-top: 6px;
-      font-size: 11px;
-      font-weight: 900;
-      color: #374151;
-      letter-spacing: -0.1px;
-    }
-
-    .url-box {
-      background: #f1f3f5;
-      padding: 12px 16px;
-      border-radius: 6px;
-      margin: 18px 0;
-      font-size: 15px;
-    }
-
-    .role-toggle {
-      margin-top: 6px;
-    }
-
-    .role-list {
-      margin: 0;
-      padding-left: 22px;
-    }
-
-    .project-section li {
-      margin: 6px 0;
     }
 
     #sec-certs .item-card {
@@ -516,130 +436,51 @@
       line-height: 1.45;
     }
 
-    @media (max-width: 900px) {
-      .tri-section {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .profile-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-qr {
-        display: none;
-      }
-    }
-
-    :root {
-      --bg: #f4f6f9;
-      --text: #333;
-      --card: #fff;
-      --card-2: #f8fafc;
-      --border: #e0e0e0;
-      --border-soft: #eef2f7;
-      --heading: #222;
-      --subtext: #666;
-      --muted: #6b7280;
-      --link: #1e88e5;
-      --link-hover: #1565c0;
-      --blue-soft: #eff6ff;
-      --blue-border: #bfdbfe;
-      --blue-text: #1d4ed8;
-      --shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-      --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.04);
-      --shadow-float: 0 10px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    body.dark {
-      --bg: #0b1220;
-      --text: #e5e7eb;
-      --card: #111827;
-      --card-2: #182233;
-      --border: #243041;
-      --border-soft: #2b3647;
-      --heading: #f9fafb;
-      --subtext: #9ca3af;
-      --muted: #94a3b8;
-      --link: #7cc4ff;
-      --link-hover: #a5d8ff;
-      --blue-soft: rgba(59, 130, 246, 0.14);
-      --blue-border: rgba(96, 165, 250, 0.35);
-      --blue-text: #93c5fd;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
-      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.24);
-      --shadow-float: 0 14px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 40px 20px;
-      transition: background 0.35s ease, color 0.35s ease;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-      transition: 0.2s ease;
-      word-break: break-all;
-    }
-
-    a:hover {
-      color: var(--link-hover);
-      text-decoration: underline;
-    }
-
-    h2,
-    .project-section-title,
-    .name {
-      color: var(--heading);
-    }
-
-    h4,
-    .title,
-    .project-duration,
-    .portfolio-text,
-    .item-meta,
-    .award-meta,
-    .email-label,
-    .qr-caption {
-      color: var(--subtext);
-    }
-
-    .profile,
-    .stack-section,
-    .tri-section>section,
-    .global-role-bar,
-    .project-section {
+    .global-role-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 60px;
+      padding: 14px 16px;
+      border-radius: 18px;
       background: var(--card);
-      border-color: var(--border);
+      border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
       transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
-    .meta-item,
-    .award-item,
-    .item-card,
-    .global-role-buttons,
-    .url-box {
+    .project-section-title {
+      margin: 0;
+      font-size: 26px;
+      border-left: 6px solid var(--accent);
+      padding-left: 14px;
+      color: var(--heading);
+      scroll-margin-top: 120px;
+      white-space: nowrap;
+    }
+
+    .global-role-buttons {
+      display: inline-flex;
+      gap: 8px;
       background: var(--card-2);
-      border-color: var(--border-soft);
+      border: 1px solid var(--border-soft);
+      padding: 6px;
+      border-radius: 999px;
+      flex: 0 0 auto;
       transition: background 0.35s ease, border-color 0.35s ease;
     }
 
-    .status-badge,
-    .global-role-btn.active {
-      background: var(--blue-soft);
-      border-color: var(--blue-border);
-      color: var(--blue-text);
-    }
-
     .global-role-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
       color: var(--text);
+      transition: 0.15s ease;
     }
 
     .global-role-btn:hover {
@@ -647,15 +488,205 @@
       border-color: var(--border-soft);
     }
 
-    .profile-qr {
-      background: rgba(255, 255, 255, 0.78);
-      border-color: var(--border-soft);
-      box-shadow: var(--shadow-float);
-      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    .global-role-btn.active {
+      border-color: var(--blue-border);
+      background: var(--blue-soft);
+      color: var(--blue-text);
     }
 
-    body.dark .profile-qr {
-      background: rgba(17, 24, 39, 0.72);
+    .project-section {
+      background: var(--card);
+      padding: 30px;
+      margin-top: 28px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease;
+    }
+
+    .project-section:hover {
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 26px;
+      font-weight: 900;
+      margin: 0 0 8px;
+      color: var(--accent);
+      line-height: 1.35;
+    }
+
+    .project-duration {
+      color: var(--subtext);
+      margin: 0;
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    .project-index {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      height: 54px;
+      padding: 0 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent-soft), var(--accent-soft-2));
+      border: 1px solid var(--blue-border);
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .content-block {
+      background: var(--card-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .content-block.intro-block {
+      background: linear-gradient(180deg, var(--card-2), transparent), var(--card-2);
+    }
+
+    .url-box {
+      background: var(--card-3);
+      padding: 13px 16px;
+      border-radius: 12px;
+      margin: 0 0 14px;
+      font-size: 15px;
+      border: 1px solid var(--border-soft);
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .role-toggle {
+      margin-top: 0;
+    }
+
+    .role-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .role-list li+li {
+      margin-top: 6px;
+    }
+
+    .troubleshooting-card {
+      background: linear-gradient(180deg, var(--blue-soft), transparent), var(--card-2);
+      border: 1px solid var(--blue-border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .troubleshooting-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .troubleshooting-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--heading);
+      margin: 0;
+    }
+
+    .troubleshooting-title::before {
+      content: "Troubleshooting";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+
+    .trouble-topic {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.6;
+    }
+
+    .trouble-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .trouble-item {
+      background: var(--card);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 16px;
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .trouble-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--heading);
+    }
+
+    .trouble-label::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .trouble-item p {
+      font-size: 15px;
+      line-height: 1.9;
+      white-space: normal;
+    }
+
+    .trouble-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .trouble-list li {
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .trouble-list li+li {
+      margin-top: 4px;
     }
 
     .theme-toggle {
@@ -731,7 +762,57 @@
       user-select: none;
     }
 
+    @media (max-width: 900px) {
+      .tri-section {
+        grid-template-columns: 1fr;
+      }
+
+      .status-row {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 24px 14px 50px;
+      }
+
+      .profile,
+      .stack-section,
+      .project-section {
+        padding: 22px;
+      }
+
+      .project-header {
+        align-items: stretch;
+      }
+
+      .project-index {
+        min-width: 100%;
+        justify-content: flex-start;
+        height: 46px;
+      }
+
+      .global-role-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .global-role-buttons {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
     @media (max-width: 600px) {
+      .profile-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-qr {
+        display: none;
+      }
+
       .theme-toggle {
         top: 14px;
         right: 14px;
@@ -741,6 +822,26 @@
 
       .theme-toggle-label {
         display: none;
+      }
+
+      .title {
+        font-size: 22px;
+      }
+
+      .name {
+        font-size: 32px;
+      }
+
+      .project-title {
+        font-size: 22px;
+      }
+
+      .troubleshooting-title {
+        font-size: 16px;
+      }
+
+      .trouble-topic {
+        font-size: 16px;
       }
     }
   </style>
@@ -778,6 +879,7 @@
 
       <div class="profile-qr">
         <img src="qr.png" alt="QR Code" />
+        <div class="qr-caption">Portfolio QR</div>
       </div>
     </div>
 
@@ -859,9 +961,7 @@
             <div class="item-meta">2024.04. ~ 2024.10.</div>
           </div>
         </div>
-
       </section>
-
     </div>
 
     <div class="global-role-bar">
@@ -874,159 +974,277 @@
     </div>
 
     <div class="project-section">
-      <div class="project-title">디어 오브제(Dear Objet) · 개발 진행 중</div>
-      <div class="project-duration">2026.01. ~ </div>
-
-      <h4>소개</h4>
-      <div class="url-box">
-        <a href="https://github.com/DearObjet/DearObjet-backend/tree/develop" target="_blank" rel="noopener noreferrer">
-          https://github.com/DearObjet/DearObjet-backend/tree/develop (develop 브랜치)
-        </a>
+      <div class="project-header">
+        <div>
+          <div class="project-title">하루새김</div>
+          <div class="project-duration">2025.08. ~ 2025.11.</div>
+        </div>
       </div>
-      <p>
-        디어 오브제는 <span class="bold">작가·소품샵·일반 사용자를 연결하는 온·오프라인 통합 플랫폼</span>으로,
-        사용자는 지도 기반으로 소품샵을 탐색하고, 작가와 샵은 플랫폼 내에서
-        소통·입점 제안/승인·계약·정산까지 한 번에 처리할 수 있도록 설계된 원스톱 서비스입니다.
-        작가–소품샵 간 실시간 소통부터 입점 제안, 계약, 정산까지 이어지는 흐름을 한 곳에서 끊김 없이 제공해
-        사용자는 원하는 공간과 작품을 더 빠르게 찾고, 작가와 소품샵은 더 효율적으로 협업할 수 있도록 하는 것을 목표로 개발 중입니다.
-      </p>
 
-      <h4>담당 역할</h4>
-      <div class="role-toggle">
-        <ul class="role-list role-full">
-          <li>주문/결제/공지 도메인 REST API 설계·구현 및 공통 응답 래퍼(<code>ApiResponse</code>) 적용, 요청/응답 DTO로 계층 분리</li>
-          <li>주문 생성·조회·상태변경·배송정보 등록·구매확정·취소 API(<code>/api/v1/orders</code>) 구현 및 주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>)
-            생성 로직 적용</li>
-          <li>주문 소유권 검증(<code>validateOwner</code>)으로 본인 주문만 접근 가능하도록 권한 제어, 주요 변경 기능(취소/상태/배송)에 일관 적용</li>
-          <li>주문 통계 API(<code>/api/v1/orders/stats</code>) 구현: 일별 매출·인기상품 Top10·시간대별 주문 수를 Native Query + Projection으로
-            집계해 대시보드 데이터 제공</li>
-          <li>토스페이먼츠 결제 연동 구현: 결제 생성/승인/취소/내역 조회 API(<code>/api/v1/payments</code>)와 <code>TossPaymentsClient</code> 연동,
-            주문상태·금액·주문번호 검증으로 결제 무결성을 확보하고, 사용자별 기간 조건 기반 결제 내역 조회를 페이지네이션으로 제공</li>
-          <li>결제 Webhook 처리(<code>/api/v1/payments/webhooks/toss</code>) 구현: <code>paymentKey</code> 기반 결제 조회 후 내부 결제/주문
-            상태 동기화로 비동기 이벤트 반영</li>
-          <li>공지사항 조회 API(<code>/api/v1/notices</code>) 구현: 카테고리 필터(공지/뉴스/이벤트/페스티벌) + 페이지네이션으로 최신순 목록 제공</li>
-        </ul>
+      <div class="project-grid">
+        <div class="content-block intro-block">
+          <h4>소개</h4>
+          <div class="url-box">
+            <a href="https://github.com/Myeongseok-Kang/harusaegim" target="_blank" rel="noopener noreferrer">
+              https://github.com/Myeongseok-Kang/harusaegim
+            </a>
+          </div>
+          <p>
+            하루새김은 바쁜 일상 속에서도 <span class="bold">일상의 사소한 순간과 감정을 빠르고 간편하게 남길 수 있는 Android 전용 감정일기 애플리케이션</span>입니다.
+            사용자는 날짜, 위치, 활동, 감정의 네 가지 요소만 입력하면 되며, 서버에서는 OpenAI API를 활용해 자연스러운 1인칭 하루 일기를 자동으로 생성합니다.
+            누적된 기록을 바탕으로 7일·30일 감정 리포트를 제공하여, 사용자가 자신의 감정 흐름과 생활 리듬을 한눈에 돌아볼 수 있도록 설계했습니다.
+          </p>
+        </div>
 
-        <ul class="role-list role-summary" hidden>
-          <li>주문/결제/공지 도메인 REST API 설계·구현, <code>ApiResponse</code> 적용 및 DTO 계층 분리</li>
-          <li>주문 생성/조회/상태변경 및 주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>) 생성 로직 구현</li>
-          <li>주문 소유권 검증(<code>validateOwner</code>) 기반 권한 제어 일관 적용</li>
-          <li>주문 통계 API: Native Query + Projection으로 집계(일별 매출/Top10/시간대)</li>
-          <li>토스페이먼츠 결제 승인·취소·내역 조회 및 Webhook 처리로 결제/주문 상태 동기화</li>
-        </ul>
+        <div class="content-block">
+          <h4>담당 역할</h4>
+          <div class="role-toggle">
+            <ul class="role-list role-full">
+              <li>GPT 기반 일기 생성 로직 구현 - 날짜·장소·한 일·기분을 입력받아 OpenAI API와 연동해 일기 생성, 장애 시 안전한 fallback 문장 제공</li>
+              <li>감정 키워드를 기반으로 0~20 범위의 감정 점수를 계산하는 스코어링 함수와, 이를 활용한 7일·30일 감정 리포트 API(<code>/api/reports/weekly</code>,
+                <code>/api/reports/monthly</code>) 구현
+              </li>
+              <li>일기 CRUD API 구현 및 사용자 소유권 검증(userId 일치 확인)으로 접근 제어 적용, 사용자+날짜 조합 중복 저장 방지로 데이터 무결성 강화</li>
+              <li>토큰 기반 인증 방식 구현(로그인 시 토큰 발급/DB 저장/만료 관리) 및 인터셉터에서 토큰 검증으로 인증 필요한 API를 공통 관리</li>
+              <li>회원가입/로그인/프로필 조회·수정 API 설계·구현, DTO/Validation으로 입력 검증 적용 및 응답 모델을 DTO로 분리</li>
+              <li>예외 상황을 GlobalExceptionHandler로 정리해 검증 오류/비정상 요청/접근 불가 상황 등을 일관된 에러 응답(HTTP 상태코드 + 메시지)으로 반환하도록 구성</li>
+            </ul>
 
-        <ul class="role-list role-tech" hidden>
-          <li>Java</li>
-          <li>Spring Boot</li>
-          <li>JPA</li>
-          <li>Native Query</li>
-          <li>Projection</li>
-          <li>REST API</li>
-          <li>PostgreSQL</li>
-          <li>Docker</li>
-          <li>Postman</li>
-          <li>TossPayments PG</li>
-          <li>Webhook</li>
-        </ul>
-      </div>
-    </div>
+            <ul class="role-list role-summary" hidden>
+              <li>OpenAI API 연동으로 1인칭 일기 자동 생성 및 장애 대비 fallback 로직 구성</li>
+              <li>감정 스코어링(0~20) + 주간/월간 리포트 API 구현</li>
+              <li>일기 CRUD 및 소유권 검증, 사용자+날짜 중복 방지로 데이터 무결성 강화</li>
+              <li>토큰 기반 인증(발급/만료/검증) 및 인증 필요한 API 공통 처리</li>
+              <li>DTO/Validation/GlobalExceptionHandler로 입력 검증과 예외 응답 체계화</li>
+            </ul>
 
-    <div class="project-section">
-      <div class="project-title">하루새김</div>
-      <div class="project-duration">2025.08. ~ 2025.11.</div>
+            <ul class="role-list role-tech" hidden>
+              <li>Java</li>
+              <li>Spring Boot</li>
+              <li>REST API</li>
+              <li>OpenAI API</li>
+              <li>Token Authentication</li>
+              <li>Interceptor</li>
+              <li>MySQL</li>
+              <li>Postman</li>
+              <li>Validation</li>
+              <li>GlobalExceptionHandler</li>
+            </ul>
+          </div>
+        </div>
 
-      <h4>소개</h4>
-      <div class="url-box">
-        <a href="https://github.com/Myeongseok-Kang/harusaegim" target="_blank" rel="noopener noreferrer">
-          https://github.com/Myeongseok-Kang/harusaegim
-        </a>
-      </div>
-      <p>
-        하루새김은 바쁜 일상 속에서도 <span class="bold">일상의 사소한 순간과 감정을 빠르고 간편하게 남길 수 있는 Android 전용 감정일기 애플리케이션</span>입니다.
-        사용자는 날짜, 위치, 활동, 감정의 네 가지 요소만 입력하면 되며, 서버에서는 OpenAI API를 활용해 자연스러운 1인칭 하루 일기를 자동으로 생성합니다.
-        누적된 기록을 바탕으로 7일·30일 감정 리포트를 제공하여, 사용자가 자신의 감정 흐름과 생활 리듬을 한눈에 돌아볼 수 있도록 설계했습니다.
-      </p>
+        <div class="troubleshooting-card">
+          <div class="troubleshooting-head">
+            <h4 class="troubleshooting-title">트러블슈팅</h4>
+            <p class="trouble-topic">&lt;AI 응답 실패에 대비한 fallback 처리로 일기 생성 안정성 보완&gt;</p>
+          </div>
 
-      <h4>담당 역할</h4>
-      <div class="role-toggle">
-        <ul class="role-list role-full">
-          <li>GPT 기반 일기 생성 로직 구현 - 날짜·장소·한 일·기분을 입력받아 OpenAI API와 연동해 일기 생성, 장애 시 안전한 fallback 문장 제공</li>
-          <li>감정 키워드를 기반으로 0~20 범위의 감정 점수를 계산하는 스코어링 함수와, 이를 활용한 7일·30일 감정 리포트 API(<code>/api/reports/weekly</code>,
-            <code>/api/reports/monthly</code>) 구현
-          </li>
-          <li>일기 CRUD API 구현 및 사용자 소유권 검증(userId 일치 확인)으로 접근 제어 적용, 사용자+날짜 조합 중복 저장 방지로 데이터 무결성 강화</li>
-          <li>토큰 기반 인증 방식 구현(로그인 시 토큰 발급/DB 저장/만료 관리) 및 인터셉터에서 토큰 검증으로 인증 필요한 API를 공통 관리</li>
-          <li>회원가입/로그인/프로필 조회·수정 API 설계·구현, DTO/Validation으로 입력 검증 적용 및 응답 모델을 DTO로 분리</li>
-          <li>예외 상황을 GlobalExceptionHandler로 정리해 검증 오류/비정상 요청/접근 불가 상황 등을 일관된 에러 응답(HTTP 상태코드 + 메시지)으로 반환하도록 구성</li>
-        </ul>
+          <div class="trouble-grid">
+            <div class="trouble-item">
+              <div class="trouble-label">문제 상황 및 원인</div>
+              <p>하루새김은 사용자가 리액트 네이티브 앱에서 날짜, 위치, 활동, 감정을 입력하면 서버가 OpenAI API를 호출해 일기를 생성하는 구조였습니다. 개발 및 테스트 과정에서 외부 API
+                응답이 늦어지거나 정상적인 문장이 내려오지 않는 경우가 있었고 앱에서는 일기 생성이 실패한 것처럼 보이거나 결과가 비어 보이는 경우가 있었습니다.</p>
+            </div>
 
-        <ul class="role-list role-summary" hidden>
-          <li>OpenAI API 연동으로 1인칭 일기 자동 생성 및 장애 대비 fallback 로직 구성</li>
-          <li>감정 스코어링(0~20) + 주간/월간 리포트 API 구현</li>
-          <li>일기 CRUD 및 소유권 검증, 사용자+날짜 중복 방지로 데이터 무결성 강화</li>
-          <li>토큰 기반 인증(발급/만료/검증) 및 인증 필요한 API 공통 처리</li>
-          <li>DTO/Validation/GlobalExceptionHandler로 입력 검증과 예외 응답 체계화</li>
-        </ul>
+            <div class="trouble-item">
+              <div class="trouble-label">문제 해결</div>
+              <ul class="trouble-list">
+                <li>OpenAI API 호출 과정에서 예외가 발생하거나 응답값이 비어 있는 경우를 별도로 처리했습니다.</li>
+                <li>AI 호출부에서 try-catch를 통해 예외 상황을 잡고, 비정상 응답이나 빈 응답이 내려오면 그대로 실패시키지 않도록 했습니다.</li>
+                <li>AI 응답이 정상적이지 않을 때는 입력받은 날짜, 장소, 활동, 감정을 바탕으로 기본 일기 문장을 만들어 반환하는 fallback 로직을 추가했습니다.</li>
+              </ul>
+            </div>
 
-        <ul class="role-list role-tech" hidden>
-          <li>Java</li>
-          <li>Spring Boot</li>
-          <li>REST API</li>
-          <li>OpenAI API</li>
-          <li>Token Authentication</li>
-          <li>Interceptor</li>
-          <li>MySQL</li>
-          <li>Postman</li>
-          <li>Validation</li>
-          <li>GlobalExceptionHandler</li>
-        </ul>
+            <div class="trouble-item">
+              <div class="trouble-label">결과 및 배운 점</div>
+              <p>외부 AI API를 사용하는 기능은 항상 안정적으로 동작한다고 가정하면 안 된다는 점을 배웠습니다. fallback 처리 이후에는 응답이 불안정한 상황에서도 프론트에서 최소한의 결과를
+                사용자에게 보여줄 수 있었고, 서비스 기능이 완전히 끊기지 않도록 보완할 수 있었습니다.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="project-section">
-      <div class="project-title">찰떡케어</div>
-      <div class="project-duration">2024.03. ~ 2024.08.</div>
-
-      <h4>소개</h4>
-      <div class="url-box">
-        <a href="https://github.com/chaltteogCare/Back" target="_blank" rel="noopener noreferrer">
-          https://github.com/chaltteogCare/Back
-        </a>
+      <div class="project-header">
+        <div>
+          <div class="project-title">디어 오브제(Dear Objet) · 개발 진행 중</div>
+          <div class="project-duration">2026.01. ~ </div>
+        </div>
       </div>
-      <p>
-        서울 열린데이터광장 공공데이터 활용 창업 경진대회에 출품된 찰떡케어 프로젝트는 <span class="bold">독거노인의 생활 정보, 보호자 연락처, 방문 일정을 통합 관리할 수 있는 맞춤형 돌봄
-          지원 서비스</span>입니다.
-        총 5명의 팀원이 협업하여 개발했으며, 저는 백엔드 개발과 AI 모델 연동, 배포 등을 담당했습니다.
-      </p>
 
-      <h4>담당 역할</h4>
-      <div class="role-toggle">
-        <ul class="role-list role-full">
-          <li>팀의 다른 백엔드 개발자와 협업하여 RESTful 원칙에 따라 전체 CRUD API를 설계 및 구현</li>
-          <li>AI 담당자가 개발한 Python 모델을 Flask 서버로 구축하고, Spring Boot 서버와 연동</li>
-          <li>Docker Compose를 활용하여 Spring Boot와 Flask 서버를 통합, AWS에 배포</li>
-          <li>API 사용에 어려움을 겪는 프론트엔드 팀원을 위해 Notion에 API 문서 작성 및 설명 지원</li>
-        </ul>
+      <div class="project-grid">
+        <div class="content-block intro-block">
+          <h4>소개</h4>
+          <div class="url-box">
+            <a href="https://github.com/DearObjet/DearObjet-backend/tree/develop" target="_blank"
+              rel="noopener noreferrer">
+              https://github.com/DearObjet/DearObjet-backend/tree/develop (develop 브랜치)
+            </a>
+          </div>
+          <p>
+            디어 오브제는 <span class="bold">작가·소품샵·일반 사용자를 연결하는 온·오프라인 통합 플랫폼</span>으로,
+            사용자는 지도 기반으로 소품샵을 탐색하고, 작가와 샵은 플랫폼 내에서
+            소통·입점 제안/승인·계약·정산까지 한 번에 처리할 수 있도록 설계된 원스톱 서비스입니다.
+            작가–소품샵 간 실시간 소통부터 입점 제안, 계약, 정산까지 이어지는 흐름을 한 곳에서 끊김 없이 제공해
+            사용자는 원하는 공간과 작품을 더 빠르게 찾고, 작가와 소품샵은 더 효율적으로 협업할 수 있도록 하는 것을 목표로 개발 중입니다.
+          </p>
+        </div>
 
-        <ul class="role-list role-summary" hidden>
-          <li>RESTful 원칙 기반 CRUD API 설계·구현(백엔드 협업)</li>
-          <li>Python(Flask) AI 모델 서버 구축 및 Spring Boot 연동</li>
-          <li>Docker Compose로 서비스 통합 후 AWS 배포</li>
-          <li>Notion 기반 API 문서화 및 커뮤니케이션 지원</li>
-        </ul>
+        <div class="content-block">
+          <h4>담당 역할</h4>
+          <div class="role-toggle">
+            <ul class="role-list role-full">
+              <li>주문/결제/공지 도메인 REST API 설계·구현 및 공통 응답 래퍼(<code>ApiResponse</code>) 적용, 요청/응답 DTO로 계층 분리</li>
+              <li>주문 생성·조회·상태변경·배송정보 등록·구매확정·취소 API(<code>/api/v1/orders</code>) 구현 및
+                주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>) 생성 로직 적용</li>
+              <li>주문 소유권 검증(<code>validateOwner</code>)으로 본인 주문만 접근 가능하도록 권한 제어, 주요 변경 기능(취소/상태/배송)에 일관 적용</li>
+              <li>주문 통계 API(<code>/api/v1/orders/stats</code>) 구현: 일별 매출·인기상품 Top10·시간대별 주문 수를 Native Query +
+                Projection으로 집계해 대시보드 데이터 제공</li>
+              <li>토스페이먼츠 결제 연동 구현: 결제 생성/승인/취소/내역 조회 API(<code>/api/v1/payments</code>)와 <code>TossPaymentsClient</code>
+                연동, 주문상태·금액·주문번호 검증으로 결제 무결성을 확보하고, 사용자별 기간 조건 기반 결제 내역 조회를 페이지네이션으로 제공</li>
+              <li>결제 Webhook 처리(<code>/api/v1/payments/webhooks/toss</code>) 구현: <code>paymentKey</code> 기반 결제 조회 후 내부
+                결제/주문 상태 동기화로 비동기 이벤트 반영</li>
+              <li>공지사항 조회 API(<code>/api/v1/notices</code>) 구현: 카테고리 필터(공지/뉴스/이벤트/페스티벌) + 페이지네이션으로 최신순 목록 제공</li>
+            </ul>
 
-        <ul class="role-list role-tech" hidden>
-          <li>Java</li>
-          <li>Spring Boot</li>
-          <li>Flask</li>
-          <li>Python</li>
-          <li>MySQL</li>
-          <li>Docker Compose</li>
-          <li>AWS</li>
-          <li>REST API</li>
-          <li>Swagger</li>
-          <li>Notion</li>
-        </ul>
+            <ul class="role-list role-summary" hidden>
+              <li>주문/결제/공지 도메인 REST API 설계·구현, <code>ApiResponse</code> 적용 및 DTO 계층 분리</li>
+              <li>주문 생성/조회/상태변경 및 주문번호(<code>ORD-yyyymmdd-랜덤6자리</code>) 생성 로직 구현</li>
+              <li>주문 소유권 검증(<code>validateOwner</code>) 기반 권한 제어 일관 적용</li>
+              <li>주문 통계 API: Native Query + Projection으로 집계(일별 매출/Top10/시간대)</li>
+              <li>토스페이먼츠 결제 승인·취소·내역 조회 및 Webhook 처리로 결제/주문 상태 동기화</li>
+            </ul>
+
+            <ul class="role-list role-tech" hidden>
+              <li>Java</li>
+              <li>Spring Boot</li>
+              <li>JPA</li>
+              <li>Native Query</li>
+              <li>Projection</li>
+              <li>REST API</li>
+              <li>PostgreSQL</li>
+              <li>Docker</li>
+              <li>Postman</li>
+              <li>TossPayments PG</li>
+              <li>Webhook</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="troubleshooting-card">
+          <div class="troubleshooting-head">
+            <h4 class="troubleshooting-title">트러블슈팅</h4>
+            <p class="trouble-topic">&lt;웹훅 데이터 재검증을 통한 결제 상태 오반영 방지&gt;</p>
+          </div>
+
+          <div class="trouble-grid">
+            <div class="trouble-item">
+              <div class="trouble-label">문제 상황 및 원인</div>
+              <p>결제 웹훅은 사용자 결제 요청과 별개로 도착하는 데이터(비동기)이기 때문에, 수신한 값을 그대로 반영하면 실제 결제 상태와 다른 정보가 저장될 가능성이 있었습니다. 웹훅이 늦게
+                도착하거나 중복으로 들어오는 상황을 고려했을 때, 요청값만 기준으로 결제 완료 처리하는 방식은 위험하다고 판단했습니다.</p>
+            </div>
+
+            <div class="trouble-item">
+              <div class="trouble-label">문제 해결</div>
+              <ul class="trouble-list">
+                <li>웹훅 수신 시 요청 데이터를 바로 반영하지 않고, paymentKey를 기준으로 내부 결제 정보를 먼저 조회하도록 구현했습니다.</li>
+                <li>이후 결제사 조회 API를 호출해 실제 결제 상태, 주문번호, 결제 금액을 재확인하고, 내부 데이터와 모두 일치하는 경우에만 결제 완료 및 주문 상태 변경이 이루어지도록
+                  처리했습니다.</li>
+              </ul>
+            </div>
+
+            <div class="trouble-item">
+              <div class="trouble-label">결과 및 배운 점</div>
+              <p>외부 시스템에서 전달된 데이터를 그대로 신뢰하지 않고, 서버가 다시 검증한 뒤 반영하는 방식의 중요성을 배웠습니다. 비동기 결제 흐름에서 발생할 수 있는 잘못된 상태 반영 가능성을
+                줄였고, 결제 관련 기능에서는 요청값 자체보다 재조회한 실제 데이터를 기준으로 처리해야 더 안전하게 상태를 관리할 수 있다는 점을 배웠습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-header">
+        <div>
+          <div class="project-title">찰떡케어</div>
+          <div class="project-duration">2024.03. ~ 2024.08.</div>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div class="content-block intro-block">
+          <h4>소개</h4>
+          <div class="url-box">
+            <a href="https://github.com/chaltteogCare/Back" target="_blank" rel="noopener noreferrer">
+              https://github.com/chaltteogCare/Back
+            </a>
+          </div>
+          <p>
+            서울 열린데이터광장 공공데이터 활용 창업 경진대회에 출품된 찰떡케어 프로젝트는 <span class="bold">독거노인의 생활 정보, 보호자 연락처, 방문 일정을 통합 관리할 수 있는 맞춤형
+              돌봄 지원 서비스</span>입니다.
+            총 5명의 팀원이 협업하여 개발했으며, 저는 백엔드 개발과 AI 모델 연동, 배포 등을 담당했습니다.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h4>담당 역할</h4>
+          <div class="role-toggle">
+            <ul class="role-list role-full">
+              <li>팀의 다른 백엔드 개발자와 협업하여 RESTful 원칙에 따라 전체 CRUD API를 설계 및 구현</li>
+              <li>AI 담당자가 개발한 Python 모델을 Flask 서버로 구축하고, Spring Boot 서버와 연동</li>
+              <li>Docker Compose를 활용하여 Spring Boot와 Flask 서버를 통합, AWS에 배포</li>
+              <li>API 사용에 어려움을 겪는 프론트엔드 팀원을 위해 Notion에 API 문서 작성 및 설명 지원</li>
+            </ul>
+
+            <ul class="role-list role-summary" hidden>
+              <li>RESTful 원칙 기반 CRUD API 설계·구현(백엔드 협업)</li>
+              <li>Python(Flask) AI 모델 서버 구축 및 Spring Boot 연동</li>
+              <li>Docker Compose로 서비스 통합 후 AWS 배포</li>
+              <li>Notion 기반 API 문서화 및 커뮤니케이션 지원</li>
+            </ul>
+
+            <ul class="role-list role-tech" hidden>
+              <li>Java</li>
+              <li>Spring Boot</li>
+              <li>Flask</li>
+              <li>Python</li>
+              <li>MySQL</li>
+              <li>Docker Compose</li>
+              <li>AWS</li>
+              <li>REST API</li>
+              <li>Swagger</li>
+              <li>Notion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="troubleshooting-card">
+          <div class="troubleshooting-head">
+            <h4 class="troubleshooting-title">트러블슈팅</h4>
+            <p class="trouble-topic">&lt;API 문서화 개선을 통한 프론트엔드 협업 효율 향상&gt;</p>
+          </div>
+
+          <div class="trouble-grid">
+            <div class="trouble-item">
+              <div class="trouble-label">문제 상황 및 원인</div>
+              <p>프로젝트 초기에 프론트엔드 팀원이 API 요청 방식과 응답값을 이해하는 데 어려움을 겪어, 협업 과정에서 소통이 어려웠습니다.</p>
+            </div>
+
+            <div class="trouble-item">
+              <div class="trouble-label">문제 해결</div>
+              <ul class="trouble-list">
+                <li>Swagger를 활용해 API 명세를 정리하고 테스트할 수 있는 환경을 제공했습니다.</li>
+                <li>Notion에 요청/응답 예시와 필드 설명을 함께 정리해 프론트엔드 팀원이 쉽게 참고할 수 있도록 문서화를 보완했습니다.</li>
+              </ul>
+            </div>
+
+            <div class="trouble-item">
+              <div class="trouble-label">결과 및 배운 점</div>
+              <p>문서화를 통해 프론트엔드와의 소통이 훨씬 수월해졌고, 협업에서는 기능 구현뿐 아니라 상대가 이해하기 쉬운 형태로 정보를 전달하는 것도 중요하다는 점을 배웠습니다.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -1049,7 +1267,7 @@
     const globalBtns = Array.from(document.querySelectorAll(".global-role-btn"));
 
     function setGlobalView(view) {
-      globalBtns.forEach(b => b.classList.toggle("active", b.dataset.view === view));
+      globalBtns.forEach((b) => b.classList.toggle("active", b.dataset.view === view));
       document.querySelectorAll(".role-toggle").forEach((box) => {
         const lists = box.__lists || {};
         if (lists.full) lists.full.hidden = view !== "full";
