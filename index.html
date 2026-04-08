@@ -258,7 +258,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px 18px;
-      margin-top: 18px;
+      margin-top: 16px;
     }
 
     .meta-item {
@@ -312,44 +312,29 @@
       letter-spacing: -0.1px;
     }
 
-    .intro-section {
-      position: relative;
-      background: var(--card);
-      padding: 28px 30px;
-      margin-top: 40px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-    }
 
-    .intro-section::before {
-      content: "";
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 220px;
-      height: 220px;
-      background: var(--gradient-1);
-      pointer-events: none;
+    .profile-intro-grid {
+      margin-top: 20px;
     }
 
     .intro-grid {
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 18px;
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
 
     .intro-card {
       position: relative;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      align-items: start;
+      gap: 20px;
       background: linear-gradient(180deg, var(--card-2), var(--card));
       border: 1px solid var(--border-soft);
       border-radius: 18px;
-      padding: 22px 20px 20px;
+      padding: 24px 24px 22px;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.35s ease;
       overflow: hidden;
@@ -364,20 +349,13 @@
       pointer-events: none;
     }
 
-    .intro-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--blue-border);
-    }
-
     .intro-card-head {
       position: relative;
       z-index: 1;
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 16px;
-      padding-left: 8px;
+      margin-bottom: 0;
     }
 
     .intro-icon {
@@ -425,8 +403,17 @@
       z-index: 1;
       color: var(--text);
       font-size: 16px;
-      line-height: 2;
-      padding-left: 8px;
+      line-height: 1.95;
+      padding-top: 4px;
+    }
+
+
+
+
+    .intro-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--blue-border);
     }
 
     .stack-section {
@@ -909,6 +896,11 @@
         align-items: stretch;
       }
 
+      .intro-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
       .project-index {
         min-width: 100%;
         justify-content: flex-start;
@@ -995,6 +987,7 @@
         </div>
 
         <div class="profile-meta">
+
           <div class="meta-item">
             <span class="email-label">이메일</span><a href="mailto:dooly6276@gmail.com">dooly6276@gmail.com</a>
           </div>
@@ -1005,6 +998,52 @@
             </a>
           </div>
         </div>
+        <div class="intro-grid profile-intro-grid">
+          <article class="intro-card">
+            <div class="intro-card-head">
+              <div class="intro-icon">📘</div>
+              <div class="intro-label-wrap">
+                <div class="intro-label">Growth</div>
+                <h3 class="intro-title">성장</h3>
+              </div>
+            </div>
+            <p class="intro-desc">
+              문제를 읽고 조건을 나누어 답을 찾는 과정에서 큰 흥미를 느끼며, 프로그래밍을 꾸준히 공부해 왔습니다. 알고리즘과 CS 지식을 꾸준히 쌓으며 문제를 구조적으로 정리하고 해결하는 습관을
+              길렀고, 배운 내용을
+              프로젝트에 직접 적용해 보며 개발 역량을 키워 왔습니다.
+            </p>
+          </article>
+
+          <article class="intro-card">
+            <div class="intro-card-head">
+              <div class="intro-icon">💡</div>
+              <div class="intro-label-wrap">
+                <div class="intro-label">Interest</div>
+                <h3 class="intro-title">관심</h3>
+              </div>
+            </div>
+            <p class="intro-desc">
+              백엔드 개발과 AI 활용, 컴퓨터가 동작하는 원리와 시스템 흐름에 관심이 많습니다. 기능을 만들 때도 더 빠르고 안정적인 방법이 있는지 계속 고민하며, 낯선 기술도 빠르게 익혀 구현으로
+              옮깁니다. 새로운
+              기술을 접했을 때에도 실제 기능 구현과 개선으로 이어지도록 노력합니다.
+            </p>
+          </article>
+
+          <article class="intro-card">
+            <div class="intro-card-head">
+              <div class="intro-icon">🤝</div>
+              <div class="intro-label-wrap">
+                <div class="intro-label">Work Style</div>
+                <h3 class="intro-title">일하는 방식</h3>
+              </div>
+            </div>
+            <p class="intro-desc">
+              완벽함에만 머무르기보다 맡은 기능을 끝까지 완성하는 일을 중요하게 여기며, 함께 일하는 과정에서도 의견을 나누고 방향을 맞춰 가려 합니다. 혼자 정한 기준에 갇히기보다 지금 필요한 결과를
+              만드는 데
+              집중하고, 진행 과정에서 더 나은 방법이 있으면 유연하게 반영하려고 합니다.
+            </p>
+          </article>
+        </div>
       </div>
 
       <div class="profile-qr">
@@ -1013,52 +1052,6 @@
       </div>
     </div>
 
-    <section class="intro-section" id="sec-intro">
-      <h2>자기소개</h2>
-      <div class="intro-grid">
-        <article class="intro-card">
-          <div class="intro-card-head">
-            <div class="intro-icon">📘</div>
-            <div class="intro-label-wrap">
-              <div class="intro-label">Growth</div>
-              <h3 class="intro-title">성장</h3>
-            </div>
-          </div>
-          <p class="intro-desc">
-            문제를 읽고 조건을 나누어 답을 찾는 과정에서 큰 흥미를 느끼며, 프로그래밍을 꾸준히 공부해 왔습니다. 알고리즘과 CS 지식을 꾸준히 쌓으며 문제를 구조적으로 정리하고 해결하는 습관을 길렀고,
-            배운 내용을 프로젝트에 직접 적용해 보며 개발 역량을 키워 왔습니다.
-          </p>
-        </article>
-
-        <article class="intro-card">
-          <div class="intro-card-head">
-            <div class="intro-icon">💡</div>
-            <div class="intro-label-wrap">
-              <div class="intro-label">Interest</div>
-              <h3 class="intro-title">관심</h3>
-            </div>
-          </div>
-          <p class="intro-desc">
-            백엔드 개발과 AI 활용, 컴퓨터가 동작하는 원리와 시스템 흐름에 관심이 많습니다. 기능을 만들 때도 더 빠르고 안정적인 방법이 있는지 계속 고민하며, 낯선 기술도 빠르게 익혀 구현으로
-            옮깁니다. 새로운 기술을 접했을 때에도 실제 기능 구현과 개선으로 이어지도록 노력합니다.
-          </p>
-        </article>
-
-        <article class="intro-card">
-          <div class="intro-card-head">
-            <div class="intro-icon">🤝</div>
-            <div class="intro-label-wrap">
-              <div class="intro-label">Work Style</div>
-              <h3 class="intro-title">일하는 방식</h3>
-            </div>
-          </div>
-          <p class="intro-desc">
-            완벽함에만 머무르기보다 맡은 기능을 끝까지 완성하는 일을 중요하게 여기며, 함께 일하는 과정에서도 의견을 나누고 방향을 맞춰 가려 합니다. 혼자 정한 기준에 갇히기보다 지금 필요한 결과를 만드는
-            데 집중하고, 진행 과정에서 더 나은 방법이 있으면 유연하게 반영하려고 합니다.
-          </p>
-        </article>
-      </div>
-    </section>
 
     <div class="stack-section" id="sec-stack">
       <h2>기술 스택</h2>
